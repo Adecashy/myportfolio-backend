@@ -6,6 +6,8 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 router.post("/", async (req, res) => {
     try {
+        console.log("CONTACT ROUTE HIT");
+
         const { name, email, message } = req.body
 
         const newContact = await contactModel.create({
@@ -18,7 +20,7 @@ router.post("/", async (req, res) => {
 
         const { data, error } = await resend.emails.send({
             from: "Portfolio <onboarding@resend.dev>",
-            to: ["immaemmanuell@gmail.com"],
+            to: ["crimefile67@gmail.com"],
             subject: `New portfolio message from ${name}`,
             html:`
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
