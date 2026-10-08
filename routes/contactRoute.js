@@ -14,6 +14,8 @@ router.post("/", async (req, res) => {
             message
         })
 
+        console.log("Contact saved to MongoDB")
+
         const { data, error } = await resend.emails.send({
             from: "Portfolio <onboarding@resend.dev>",
             to: ["immaemmanuell@gmail.com"],
@@ -38,6 +40,8 @@ router.post("/", async (req, res) => {
                 </div>
             `
         })
+
+        console.log("Resend response:", { data, error })
 
         if (error) {
             console.log("Resend error:", error)
